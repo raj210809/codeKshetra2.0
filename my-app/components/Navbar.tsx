@@ -80,7 +80,7 @@ export default function Navbar() {
     <>
       <Link href="/" className="flex items-center mb-6">
         <Image src="/logo_cropped.png" width={48} height={48} alt="Stream Bill logo" className='dark:invert rounded-full'/>
-        <span className="ml-2 font-semibold">StreamBill<span className="text-gray-400 text-xs ml-1">testnet</span></span>
+        <span className="ml-2 font-semibold">SecureInvoice<span className="text-gray-400 text-xs ml-1">testnet</span></span>
       </Link>
       <nav className="lg:flex-1">
         <ul className="flex flex-col gap-4">
@@ -148,7 +148,7 @@ export default function Navbar() {
       <header className="lg:hidden fixed top-0 left-0 right-0 bg-background border-b border-accent p-4 flex justify-between items-center z-50">
         <Link href="/" className="flex items-center">
           <Image src="/logo_cropped.png" width={32} height={32} alt="Stream Bill logo"/>
-          <span className="ml-2 font-semibold">StreamBill</span>
+          <span className="ml-2 font-semibold">SecureInvoice</span>
         </Link>
         <ConnectButton  accountStatus='avatar' chainStatus="icon" showBalance={false} />
         <Sheet>

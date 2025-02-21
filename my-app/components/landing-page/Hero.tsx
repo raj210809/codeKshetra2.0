@@ -23,11 +23,11 @@ export default function Hero() {
             <p className="text-sm text-muted-foreground">Built with</p>
             <div className="flex space-x-2">
               <Avatar>
-                <AvatarImage src="/request.png" alt="RequestNetwork" />
+                <AvatarImage src="" alt="RequestNetwork" />
                 <AvatarFallback>RN</AvatarFallback>
               </Avatar>
               <Avatar>
-                <AvatarImage src="/opencampus.png" alt="EDUCHAIN"  />
+                <AvatarImage src="" alt="EDUCHAIN"  />
                 <AvatarFallback>EDU</AvatarFallback>
               </Avatar>
               <Avatar>

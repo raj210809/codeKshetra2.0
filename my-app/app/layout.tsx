@@ -18,17 +18,17 @@ import { Button } from "@/components/ui/button";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://app.streambill.xyz'),
-  title: "StreamBill.xyz",
-  description: "StreamBill.xyz - Streaming invoices onchain.",
+  metadataBase: new URL('http://localhost:3000/'),
+  title: "SecureInvoice.xyz",
+  description: "SecureInvoice.xyz - Streaming invoices onchain.",
   openGraph: {
-    title: "Streambill app",
-    description: "StreamBill.xyz - Streaming invoices onchain.",
-    url: "https://app.streambill.xyz",
-    siteName: "StreamBill.xyz",
+    title: "SecureInvoice app",
+    description: "SecureInvoice.xyz - Streaming invoices onchain.",
+    url: "http://localhost:3000/",
+    siteName: "SecureInvoice.xyz",
     images: [
       {
-        url: "https://app.streambill.xyz/streambill-banner.png",
+        url: "",
         width: 1200,
         height: 630,
       }
@@ -38,11 +38,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Streambill app",
-    description: "Streambill app - Real time payments and invoicing",
-    site: "@_alexastro",
-    creator: "@_alexastro",
-    images: ["https://app.streambill.xyz/streambill-banner.png"],
+    title: "SecureInvoice app",
+    description: "SecureInvoice app - Real time payments and invoicing",
+    site: "",
+    creator: "",
+    images: [""],
   },
 }
 

@@ -13,7 +13,6 @@ export default function Home() {
     <Features />
      <PeopleShowcase />
  
-     <FollowTheJourney />
     </main>
   );
 }
