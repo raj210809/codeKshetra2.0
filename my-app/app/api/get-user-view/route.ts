@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
 // Initialize Supabase client
-const supabaseUrl = 'https://smvodimhjegutuotvakm.supabase.co';
-const supabaseServiceRoleKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNtdm9kaW1oamVndXR1b3R2YWttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxMTk3NzAsImV4cCI6MjA1NTY5NTc3MH0.oIPMGrZdnZQFGS8ccux8GtstsvE5T-pANNl4j_Lw0Hg';
+const supabaseUrl = 'https://wudztumjhzxohfzaidyc.supabase.co';
+const supabaseServiceRoleKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1ZHp0dW1qaHp4b2hmemFpZHljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxNDc3MzgsImV4cCI6MjA1NTcyMzczOH0.yxL7We8G5Lq4_fWZGeK7MHYaa6ymhxYaTauCXN0Bzc0';
 
 const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
 

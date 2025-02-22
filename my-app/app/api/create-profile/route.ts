@@ -25,12 +25,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const { data, error } = await supabase
-      .from('user_details')
-      .upsert(
-        { evmAddress, name, email, address, city, state, zip, country },
-        { onConflict: 'evmAddress', ignoreDuplicates: false }
-      )
+  const { data, error } = await supabase
+  .from('user_details')
+  .insert([
+    { evmAddress, name, email, address, city, state, zip, country }
+  ]);
 
     if (error) throw error
 

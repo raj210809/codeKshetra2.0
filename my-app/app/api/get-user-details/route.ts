@@ -8,12 +8,14 @@ export async function GET(request: Request) {
 
     const { searchParams } = new URL(request.url);
     const address = searchParams.get('address');
+    console.log("address", address)
 
     if (!address) {
         return NextResponse.json({ error: 'Address is required' }, { status: 400 });
     }
 
     const session = await getServerSession(authOptions);
+    console.log("session", session)
 
     //@ts-ignore
     if (!session || !session.user?.address) {

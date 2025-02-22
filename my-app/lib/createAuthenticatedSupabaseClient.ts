@@ -23,13 +23,13 @@ export function createAuthenticatedSupabaseClient(session: Session | null) {
 
   const supabaseToken = jwt.sign(
     supabaseJwtPayload,
-    '7LHhPsrFAH/qEO8H6qpSVsMLLuYQGlMI/SvJSoT1YLGvS6uBHsec4EjG3f99efVSrT11Na3IdY0ULRDAhGug3A=='
+    'RE+FUccj2m8fXRGt+F2mEiTMu1mM23php6xhI4oc2GMOGWrht1n412e6duNUojhZb11xJOIGzNZ7DuAKaHbHlA=='
   );
 
   // Create and return Supabase client with the generated JWT
   return createClient(
-    'https://smvodimhjegutuotvakm.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNtdm9kaW1oamVndXR1b3R2YWttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxMTk3NzAsImV4cCI6MjA1NTY5NTc3MH0.oIPMGrZdnZQFGS8ccux8GtstsvE5T-pANNl4j_Lw0Hg',
+    'https://wudztumjhzxohfzaidyc.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1ZHp0dW1qaHp4b2hmemFpZHljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxNDc3MzgsImV4cCI6MjA1NTcyMzczOH0.yxL7We8G5Lq4_fWZGeK7MHYaa6ymhxYaTauCXN0Bzc0',
     {
       global: { headers: { Authorization: `Bearer ${supabaseToken}` } },
     }

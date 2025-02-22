@@ -48,7 +48,7 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-  secret: '7LHhPsrFAH/qEO8H6qpSVsMLLuYQGlMI/SvJSoT1YLGvS6uBHsec4EjG3f99efVSrT11Na3IdY0ULRDAhGug3A==',
+  secret: 'RE+FUccj2m8fXRGt+F2mEiTMu1mM23php6xhI4oc2GMOGWrht1n412e6duNUojhZb11xJOIGzNZ7DuAKaHbHlA==',
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
@@ -66,7 +66,7 @@ export const authOptions: NextAuthOptions = {
 
       const supabaseToken = jwt.sign(
         supabaseJwtPayload,
-        '7LHhPsrFAH/qEO8H6qpSVsMLLuYQGlMI/SvJSoT1YLGvS6uBHsec4EjG3f99efVSrT11Na3IdY0ULRDAhGug3A=='
+        'RE+FUccj2m8fXRGt+F2mEiTMu1mM23php6xhI4oc2GMOGWrht1n412e6duNUojhZb11xJOIGzNZ7DuAKaHbHlA=='
       )
 
       token.supabaseAccessToken = supabaseToken
