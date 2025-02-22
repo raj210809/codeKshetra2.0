@@ -48,58 +48,62 @@ const CreateRequestButton: React.FC<CreateRequestButtonProps> = ({
       invoiceItems,
       chain
     });
+  
     if (!payerEVMAddress || !expectedAmount || !dueDate || invoiceItems.length < 1) {
-
       alert("Please fill in all the fields");
       return;
     }
-
+  
     setIsConfirmed(false);
     setLoading(true);
     setDialogOpen(true);
     setDialogMessage("Creating Request...");
-
+  
     try {
       const web3SignatureProvider = new Web3SignatureProvider(walletClient);
-      //switch to sepolia for now
+  
+      // ✅ Ensure Base Sepolia Gateway URL is correct
+      const baseSepoliaGateway = "https://sepolia.gateway.request.network";
+  
       const requestClient = new RequestNetwork({
         nodeConnectionConfig: {
-          baseURL: "https://sepolia.gateway.request.network",
+          baseURL: baseSepoliaGateway,
         },
         signatureProvider: web3SignatureProvider,
       });
-
-      //test
-      //   const flowRate = calculateUSDCPerSecond(dueDate.toString(), parseInt(expectedAmount));
-
+      console.log("Request Client:", requestClient);
+  
+      // ✅ Confirm the correct token address on Base Sepolia
+      const tokenAddressBaseSepolia = "0xc75ab970D9492f6b04d66153CcCED146e60A7D5B"; // Double-check this
+  
       const requestParameters = generateRequestParameters({
         payeeIdentity: payeeEVMAddress,
         payerIdentity: payerEVMAddress,
         expectedAmount,
         dueDate,
         invoiceItems,
-        tokenAddress: "0xc75ab970D9492f6b04d66153CcCED146e60A7D5B",
+        tokenAddress: tokenAddressBaseSepolia,
         expectedFlowRate: "15",
-        chain
+        chain // Ensure this is set to Base Sepolia
       });
-
+  
       console.log("Request Parameters:", requestParameters);
-     
-      
+  
+      // ✅ Creating Request
       const request = await requestClient.createRequest(requestParameters);
+      console.log("Request:", request);
       setDialogMessage("Request Created Successfully! Confirming Request...");
-
-     
+  
+      // ✅ Waiting for Confirmation
       const confirmedRequestData = await request.waitForConfirmation();
+      console.log("Confirmed Request Data:", confirmedRequestData);
       setDialogMessage("Request Confirmed");
-
-      console.log(confirmedRequestData.requestId);
-
+  
+      console.log("Request ID:", confirmedRequestData.requestId);
+  
       setLinkState(`https://wavein.vercel.app/confirm-wavein/${confirmedRequestData.requestId}`);
-
-   
-
-      // Create invoice in Supabase
+  
+      // ✅ Save invoice in Supabase
       const response = await fetch('/api/post-invoice', {
         method: 'POST',
         headers: {
@@ -117,29 +121,28 @@ const CreateRequestButton: React.FC<CreateRequestButtonProps> = ({
           gateway: 'sepolia'
         }),
       });
-
-      setRequestId(confirmedRequestData.requestId);
-
-      
-
+  
       if (!response.ok) {
         throw new Error('Failed to create invoice');
       }
-
+  
+      setRequestId(confirmedRequestData.requestId);
       setDialogMessage("Request Created Successfully");
       setIsConfirmed(true);
-      setLoading(false)
-
+      setLoading(false);
+  
     } catch (error: any) {
-      console.log(error)
-      alert('Error : sepolia gateway | We are aware of it and we are working on it ! :) | Update time : 1 OCTOBER 2024')
-      setDialogMessage(`Error: ${error}`);
-      setLoading(false)
+      console.error("Request Error:", error);
+  
+      alert(`Error: ${error.message || "Unknown Error"} | Check gateway & token settings`);
+      setDialogMessage(`Error: ${error.message || error}`);
+      setLoading(false);
+  
     } finally {
-
-      //   setIsConfirmed(false);
+      // Keep final cleanup here if needed
     }
   };
+  
 
   useEffect(() => {
     console.log(chain);

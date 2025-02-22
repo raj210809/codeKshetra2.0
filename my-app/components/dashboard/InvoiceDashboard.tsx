@@ -126,29 +126,6 @@ const InvoiceDashboard = () => {
 
   return (
     <div className="container mx-auto p-4">
-         <Alert className="rounded-none border-none bg-gradient-to-r from-emerald-600 to-green-500 text-white shadow-lg mb-6 mt-6 xl:mt-0 ">
-            <AlertDescription className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-x-4 py-0">
-              <div className="flex items-center gap-2 text-lg">
-                <span role="img" aria-label="celebration" className="text-2xl animate-bounce">🎉</span>
-                <span className="font-semibold">Big news!</span> 
-                <span className="hidden sm:inline">StreamBill is now part of Gitcoin Grants Round 22</span>
-                <span className="sm:hidden">Support us on Gitcoin G22</span>
-              </div>
-              <Button 
-                variant="secondary" 
-                className="bg-white text-emerald-600 hover:bg-emerald-50 hover:scale-105 transition-transform duration-200 whitespace-nowrap text-base px-6 py-2"
-                asChild
-              >
-                <a 
-                  href="https://explorer.gitcoin.co/#/round/42161/608/148" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  Support Us →
-                </a>
-              </Button>
-            </AlertDescription>
-          </Alert>
 
       <h1 className="text-2xl font-bold mb-4">Invoice Dashboard</h1>
       
