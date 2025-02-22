@@ -4,7 +4,7 @@ import React from 'react';
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import Link from "next/link";
-import { LayoutDashboard, UserCircle, FileText, DollarSign, Menu, MessageCircle, ChevronDown, Share2, Monitor, Briefcase, Search } from "lucide-react";
+import { LayoutDashboard, UserCircle, FileText, DollarSign, Menu, MessageCircle, ChevronDown, Share2, Monitor, Briefcase,ShieldCheck, Search } from "lucide-react";
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useAccount } from 'wagmi';
@@ -28,8 +28,8 @@ export default function Navbar() {
 
 
   const socialItems = [
-    { href: 'https://t.me/streambill', icon: MessageCircle, label: "Join Telegram"},
-    { href: 'https://x.com/intent/user?screen_name=streambillxyz', icon: TwitterLogoIcon, label: "Join X"},
+    { href: '', icon: MessageCircle, label: "Join Telegram"},
+    { href: '', icon: TwitterLogoIcon, label: "Join X"},
   ];
 
   const pathname = usePathname();
@@ -44,10 +44,10 @@ export default function Navbar() {
     { href: "/profile", icon: UserCircle, label: "Profile" },
     { href: '/mint-tusdc', icon: DollarSign, label: "Get test stablecoin" },
     { href: '/feedback', icon: MessageCircle, label: "Feedback" },
+    {href: '/reportDao', icon: ShieldCheck , label: "Report to Dao"}
   ];
 
   useEffect(() => {
-    // console.log(eduConnectAuthState);
   }, [eduConnectAuthState]);
 
   const renderOCAuth = () => {
